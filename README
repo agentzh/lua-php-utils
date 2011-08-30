@@ -1,7 +1,17 @@
 Synopsis
     local php = require "php.utils"
 
-    local num = php.ip2long("10.32.236.4') -- 169929732
+    local num = php.ip2long("10.32.236.4')
+        -- num == 169929732
+
+    num = php.ip2long("1000.3.4")
+        -- num == nil
+
+    local ip = php.long2ip(169929732)
+        -- ip == "10.32.236.4"
+
+    local ip = php.long2ip("bad arg")
+        -- ip == nil
 
 Installation
     Just copy the php/ directory (as a whole) to anywhere visible to your LuaJIT programs'

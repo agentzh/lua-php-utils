@@ -1,0 +1,9 @@
+Synopsis
+    local php = require "php.utils"
+
+    local num = php.ip2long("10.32.236.4') -- 169929732
+
+Installation
+    Just copy the php/ directory (as a whole) to anywhere visible to your LuaJIT programs'
+    lua module search paths setting.
+

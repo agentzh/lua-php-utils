@@ -22,9 +22,6 @@ function ip2long(ip)
     return nil
 end
 
--- print(ip2long("10.32.125.43"))
--- print(ip2long("1.10.32.125.43"))
-
 function long2ip(long)
     if type(long) ~= "number" then
         return nil

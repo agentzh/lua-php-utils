@@ -14,10 +14,12 @@ ffi.cdef[[
     uint32_t htonl(uint32_t hostlong);
 ]]
 
+local C = ffi.C
+
 function ip2long(ip)
     local inp = ffi.new("struct in_addr[1]")
-    if ffi.C.inet_aton(ip, inp) ~= 0 then
-        return ffi.C.ntohl(inp[0].s_addr)
+    if C.inet_aton(ip, inp) ~= 0 then
+        return tonumber(C.ntohl(inp[0].s_addr))
     end
     return nil
 end
@@ -27,7 +29,7 @@ function long2ip(long)
         return nil
     end
     local addr = ffi.new("struct in_addr")
-    addr.s_addr = ffi.C.htonl(long)
-    return ffi.string(ffi.C.inet_ntoa(addr))
+    addr.s_addr = C.htonl(long)
+    return ffi.string(C.inet_ntoa(addr))
 end
 
